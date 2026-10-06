@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_SOCIABLEMEDIA</name>
+    <author>MundoPHPBB</author>
+    <creationDate>2026-10</creationDate>
+    <copyright>Copyright (C) 2026 MundoPHPBB</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <version>1.1.0</version>
+    <description>PLG_SYSTEM_SOCIABLEMEDIA_DESC</description>
+    <namespace path="src">Mundophpbb\Plugin\System\SociableMedia</namespace>
+    <files>
+        <folder plugin="sociablemedia">services</folder>
+        <folder>src</folder>
+    </files>
+    <media destination="plg_system_sociablemedia" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_system_sociablemedia.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_sociablemedia.sys.ini</language>
+        <language tag="pt-BR">language/pt-BR/plg_system_sociablemedia.ini</language>
+        <language tag="pt-BR">language/pt-BR/plg_system_sociablemedia.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="enable_emoji" type="radio" default="1" class="btn-group btn-group-yesno" label="PLG_SYSTEM_SOCIABLEMEDIA_ENABLE_EMOJI_LABEL" description="PLG_SYSTEM_SOCIABLEMEDIA_ENABLE_EMOJI_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="enable_gif" type="radio" default="1" class="btn-group btn-group-yesno" label="PLG_SYSTEM_SOCIABLEMEDIA_ENABLE_GIF_LABEL" description="PLG_SYSTEM_SOCIABLEMEDIA_ENABLE_GIF_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="giphy_api_key" type="text" filter="raw" label="PLG_SYSTEM_SOCIABLEMEDIA_GIPHY_KEY_LABEL" description="PLG_SYSTEM_SOCIABLEMEDIA_GIPHY_KEY_DESC" showon="enable_gif:1" />
+                <field name="giphy_rating" type="list" default="pg" label="PLG_SYSTEM_SOCIABLEMEDIA_GIPHY_RATING_LABEL" description="PLG_SYSTEM_SOCIABLEMEDIA_GIPHY_RATING_DESC" showon="enable_gif:1">
+                    <option value="g">G</option>
+                    <option value="pg">PG</option>
+                    <option value="pg-13">PG-13</option>
+                    <option value="r">R</option>
+                </field>
+                <field name="giphy_limit" type="number" default="20" min="8" max="30" step="1" label="PLG_SYSTEM_SOCIABLEMEDIA_GIPHY_LIMIT_LABEL" description="PLG_SYSTEM_SOCIABLEMEDIA_GIPHY_LIMIT_DESC" showon="enable_gif:1" />
+                <field name="gif_max_height" type="number" default="360" min="120" max="800" step="10" label="PLG_SYSTEM_SOCIABLEMEDIA_GIF_HEIGHT_LABEL" description="PLG_SYSTEM_SOCIABLEMEDIA_GIF_HEIGHT_DESC" showon="enable_gif:1" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
